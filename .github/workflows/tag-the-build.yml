@@ -2,8 +2,11 @@ name: tag-the-build
 
 on: workflow_dispatch
 
+permissions:
+  contents: write
+  
 jobs:
-  containerized_job:
+  tag-the-build:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
