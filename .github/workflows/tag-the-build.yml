@@ -1,0 +1,16 @@
+name: tag-the-build
+
+on: workflow_dispatch
+
+jobs:
+  containerized_job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with: 
+        fetch-depth: 0
+    - name: Tag the build
+      run: |
+        TAG=$(date +%s); echo $TAG
+        git tag $TAG
