@@ -1,0 +1,10 @@
+name: is-docker-available-in-the-build-agent
+
+on: workflow_dispatch
+
+jobs:
+  containerized_job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Display docker version 
+      run: docker --version 
