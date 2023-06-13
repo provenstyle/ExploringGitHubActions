@@ -1,4 +1,4 @@
-name: Run action in a container
+name: run-action-in-a-container 
 
 on: workflow_dispatch
 
