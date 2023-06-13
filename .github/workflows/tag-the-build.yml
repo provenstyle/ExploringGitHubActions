@@ -14,3 +14,6 @@ jobs:
       run: |
         TAG=$(date +%s); echo $TAG
         git tag $TAG
+        git tag
+        git push origin $TAG
+
