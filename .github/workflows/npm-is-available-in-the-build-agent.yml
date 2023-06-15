@@ -1,0 +1,10 @@
+name: npm-is-available-in-the-build-agent
+
+on: workflow_dispatch
+
+jobs:
+  use_npm:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Display npm version
+      run: npm -v
