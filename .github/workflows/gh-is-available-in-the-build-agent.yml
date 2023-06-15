@@ -1,0 +1,10 @@
+name: gh-is-available-in-the-build-agent
+
+on: workflow_dispatch
+
+jobs:
+  use_gh:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Display gh version
+      run: gh --version
