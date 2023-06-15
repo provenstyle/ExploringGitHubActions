@@ -1,0 +1,10 @@
+name: is-node-available-in-the-build-agent
+
+on: workflow_dispatch
+
+jobs:
+  use_node:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Display node version
+      run: node -v

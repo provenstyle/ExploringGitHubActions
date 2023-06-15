@@ -1,9 +1,9 @@
-name: is-az-available-in-the-build-agent
+name: az-is-available-in-the-build-agent
 
 on: workflow_dispatch
 
 jobs:
-  explore:
+  use_az:
     runs-on: ubuntu-latest
     steps:
     - name: Display az version
