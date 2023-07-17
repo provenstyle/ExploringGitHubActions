@@ -1,0 +1,10 @@
+name: jq-is-available-in-the-build-agent
+
+on: workflow_dispatch
+
+jobs:
+  use_az:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Call version
+      run: jq
