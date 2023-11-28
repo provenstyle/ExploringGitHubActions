@@ -1,0 +1,12 @@
+name: default-working-directory-is
+
+on: workflow_dispatch
+
+jobs:
+  default-working-directory:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Print working directory
+      run: |
+        pwd
+        ls -la 
