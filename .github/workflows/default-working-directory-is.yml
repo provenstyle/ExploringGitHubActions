@@ -5,8 +5,11 @@ on: workflow_dispatch
 jobs:
   default-working-directory:
     runs-on: ubuntu-latest
+    env:
+        repositoryPath: ${{ github.workspace }}
     steps:
     - name: Print working directory
       run: |
         pwd
+        echo $repositoryPath
         ls -la 
