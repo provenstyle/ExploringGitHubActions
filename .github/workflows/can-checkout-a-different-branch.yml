@@ -10,7 +10,5 @@ jobs:
     steps:
     - name: Checkout branch with refs/heads
       uses: actions/checkout@v4
-        with:
-          ref:  'refs/heads/develop'
     - name: git status
       run: git status
