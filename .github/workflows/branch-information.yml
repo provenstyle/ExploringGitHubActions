@@ -8,7 +8,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  use_az:
+  print_variables:
     runs-on: ubuntu-latest
     env: 
       GITHUB_REF:      ${{ github.ref }}
@@ -18,7 +18,7 @@ jobs:
       GITHUB_REF_TYPE: ${{ github.ref_type }}
 
     steps:
-    - name: isplay az version
+    - name: print github ref variables 
       run: |
         echo "GITHUB_REF:      [$GITHUB_REF]"
         echo "GITHUB_HEAD_REF: [$GITHUB_HEAD_REF]"
