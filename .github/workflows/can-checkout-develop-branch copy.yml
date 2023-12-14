@@ -1,0 +1,16 @@
+name: can-checkout-develop-branch
+
+on: workflow_dispatch
+
+jobs:
+  default-working-directory:
+    runs-on: ubuntu-latest
+    env:
+        repositoryPath: ${{ github.workspace }}
+    steps:
+    - name: Checkout develop
+      uses: actions/checkout@v4
+      with: 
+        ref: 'develop' 
+    - name: git status
+      run: git status

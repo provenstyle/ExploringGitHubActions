@@ -1,4 +1,4 @@
-name: can-checkout-a-different-branch
+name: can-checkout-refs-heads-develop-branch
 
 on: workflow_dispatch
 
@@ -8,9 +8,9 @@ jobs:
     env:
         repositoryPath: ${{ github.workspace }}
     steps:
-    - name: Checkout branch with refs/heads
+    - name: Checkout refs/heads/develop
       uses: actions/checkout@v4
       with: 
-        ref: 'develop' 
+        ref: 'refs/heads/develop' 
     - name: git status
       run: git status
