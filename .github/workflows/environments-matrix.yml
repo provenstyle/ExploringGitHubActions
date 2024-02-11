@@ -9,6 +9,7 @@ jobs:
     strategy:
       matrix:
         env: ['dev', 'qa', 'prod']
+    environment: ${{ matrix.env }}
     steps:
     - name: print-env-name
       run: echo ${{ matrix.env }}
