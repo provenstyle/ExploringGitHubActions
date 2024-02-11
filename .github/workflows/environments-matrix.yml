@@ -1,0 +1,10 @@
+jobs:
+  example_matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        env: ['dev', 'qa', 'prod']
+    environment: {{ matrix.env }}
+    steps:
+    - name: print-env-name
+      run: echo $ {{ matrix.env }}
