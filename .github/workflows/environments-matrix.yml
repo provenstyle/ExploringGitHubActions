@@ -4,11 +4,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  example_matrix:
+  deploy:
+    name: deploy-${{ matrix.env }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
         env: ['dev', 'qa', 'prod']
+
     environment: ${{ matrix.env }}
     steps:
     - name: print-env-name
