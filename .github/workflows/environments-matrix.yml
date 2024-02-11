@@ -11,4 +11,4 @@ jobs:
         env: ['dev', 'qa', 'prod']
     steps:
     - name: print-env-name
-      run: echo {{ matrix.env }}
+      run: echo ${{ matrix.env }}
