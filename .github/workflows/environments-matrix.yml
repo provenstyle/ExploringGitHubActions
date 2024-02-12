@@ -4,24 +4,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  nothing:
-    runs-on: ubuntu-latest
-    steps:
-    - name: print-text
-      run: echo "Need a step that can run all the time"
   deploy:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        include:
-          - env: "dev"
-            needs: "nothing"
-          - env: "qa"
-            needs: "deploy-dev"
-          - env: "prod"
-            needs: "deploy-qa"
+        env: ["dev", "qa", "prod"]
     name: deploy-${{ matrix.env }}
-    needs: ${{ matrix.needs }}
     environment: ${{ matrix.env }}
     steps:
     - name: print-env-name
