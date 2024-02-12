@@ -10,8 +10,6 @@ jobs:
     - name: print-text
       run: echo "Need a step that can run all the time"
   deploy:
-    name: deploy-${{ matrix.env }}
-    needs: ${{ matrix.needs }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -22,7 +20,8 @@ jobs:
             needs: "deploy-dev"
           - env: "prod"
             needs: "deploy-qa"
-
+    name: deploy-${{ matrix.env }}
+    needs: ${{ matrix.needs }}
     environment: ${{ matrix.env }}
     steps:
     - name: print-env-name
