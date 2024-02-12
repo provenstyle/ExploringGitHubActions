@@ -1,0 +1,26 @@
+name: environment-needs
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-dev:
+    runs-on: ubuntu-latest
+    environment: dev 
+    steps:
+    - name: print-env-name
+      run: echo 'dev'
+  deploy-qa:
+    runs-on: ubuntu-latest
+    environment: qa 
+    needs: deploy-dev
+    steps:
+    - name: print-env-name
+      run: echo 'qa'
+  deploy-prod:
+    runs-on: ubuntu-latest
+    environment: prod 
+    needs: deploy-qa
+    steps:
+    - name: print-env-name
+      run: echo 'prod'
