@@ -11,7 +11,7 @@ jobs:
       run: echo "Need a step that can run all the time"
   deploy:
     name: deploy-${{ matrix.env }}
-    needs: 'nothing'
+    needs: ${{ matrix.needs }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
