@@ -19,9 +19,9 @@ jobs:
           - env: "dev"
             needs: "nothing"
           - env: "qa"
-            needs: "dev"
+            needs: "deploy-dev"
           - env: "prod"
-            needs: "qa"
+            needs: "deploy-qa"
 
     environment: ${{ matrix.env }}
     steps:
