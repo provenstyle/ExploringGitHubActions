@@ -18,12 +18,10 @@ runs:
         name: ${{ inputs.artifact-name }}
         github-token: ${{ inputs.github-token }}
         path: ./downloaded-artifact
-      shell: bash
 
     - name: Display artifact content
       run: |
         echo "=== Content from custom action ==="
         cat ./downloaded-artifact/artifact.txt
         echo "=================================="
-      shell: bash
 
