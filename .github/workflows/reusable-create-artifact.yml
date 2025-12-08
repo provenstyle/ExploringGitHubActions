@@ -1,0 +1,32 @@
+name: Reusable Create Artifact
+
+on:
+  workflow_call:
+    inputs:
+      artifact-name:
+        description: 'Name of the artifact to create'
+        required: true
+        type: string
+        default: 'my-artifact'
+      retention-days:
+        description: 'Number of days to retain the artifact'
+        required: false
+        type: number
+        default: 1
+
+jobs:
+  create-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create text file
+        run: |
+          echo "Hello from artifact!" > artifact.txt
+          echo "This is a proof of concept for artifact sharing." >> artifact.txt
+          echo "Created at: $(date)" >> artifact.txt
+      
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.artifact-name }}
+          path: artifact.txt
+          retention-days: ${{ inputs.retention-days }}

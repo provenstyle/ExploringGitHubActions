@@ -1,23 +1,13 @@
-name: artifact-created-in-main-workflow-works
+name: artifact-created-in-workflow_call-step-works
 
 on: workflow_dispatch
 
 jobs:
   create-artifact:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Create text file
-        run: |
-          echo "Hello from artifact!" > artifact.txt
-          echo "This is a proof of concept for artifact sharing." >> artifact.txt
-          echo "Created at: $(date)" >> artifact.txt
-      
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: my-artifact
-          path: artifact.txt
-          retention-days: 1
+    uses: ./.github/workflows/reusable-create-artifact.yml
+    with:
+      artifact-name: my-artifact
+      retention-days: 1
 
   download-via-reusable-workflow:
     needs: create-artifact
