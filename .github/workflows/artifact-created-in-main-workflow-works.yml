@@ -1,4 +1,4 @@
-name: Artifact Demo
+name: Artifact Created in Main Workflow Works
 
 on: workflow_dispatch
 

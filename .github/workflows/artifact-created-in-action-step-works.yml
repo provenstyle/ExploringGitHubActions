@@ -1,4 +1,4 @@
-name: Artifact Demo
+name: Artifact Created in Action Step Works
 
 on: workflow_dispatch
 
