@@ -1,0 +1,32 @@
+name: Artifact Demo
+
+on: workflow_dispatch
+
+jobs:
+  create-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create and upload artifact using reusable action
+        uses: ./.github/actions/create-artifact
+        with:
+          artifact-name: my-artifact
+          retention-days: 1
+
+  download-via-reusable-workflow:
+    needs: create-artifact
+    uses: ./.github/workflows/reusable-download-artifact.yml
+    secrets: inherit
+
+  download-via-custom-action:
+    needs: create-artifact
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Download artifact using custom action
+        uses: ./.github/actions/download-artifact
+        with:
+          artifact-name: my-artifact
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+

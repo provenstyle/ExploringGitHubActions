@@ -1,0 +1,29 @@
+name: 'Create and Upload Artifact'
+description: 'Creates a text file artifact and uploads it'
+
+inputs:
+  artifact-name:
+    description: 'Name of the artifact to create'
+    required: true
+    default: 'my-artifact'
+  retention-days:
+    description: 'Number of days to retain the artifact'
+    required: false
+    default: '1'
+
+runs:
+  using: composite
+  steps:
+    - name: Create text file
+      shell: bash
+      run: |
+        echo "Hello from artifact!" > artifact.txt
+        echo "This is a proof of concept for artifact sharing." >> artifact.txt
+        echo "Created at: $(date)" >> artifact.txt
+    
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ inputs.artifact-name }}
+        path: artifact.txt
+        retention-days: ${{ inputs.retention-days }}
