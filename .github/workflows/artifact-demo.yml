@@ -28,6 +28,9 @@ jobs:
     needs: create-artifact
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
       - name: Download artifact using custom action
         uses: ./.github/actions/download-artifact
         with:
