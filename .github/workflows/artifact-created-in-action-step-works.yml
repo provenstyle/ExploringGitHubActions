@@ -6,6 +6,8 @@ jobs:
   create-artifact:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
       - name: Create and upload artifact using reusable action
         uses: ./.github/actions/create-artifact
         with:
