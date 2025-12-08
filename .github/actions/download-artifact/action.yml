@@ -1,0 +1,29 @@
+name: 'Download and Display Artifact'
+description: 'Downloads an artifact and displays its content'
+
+inputs:
+  artifact-name:
+    description: 'Name of the artifact to download'
+    required: true
+  github-token:
+    description: 'GitHub token for downloading artifacts'
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Download artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ inputs.artifact-name }}
+        github-token: ${{ inputs.github-token }}
+        path: ./downloaded-artifact
+      shell: bash
+
+    - name: Display artifact content
+      run: |
+        echo "=== Content from custom action ==="
+        cat ./downloaded-artifact/artifact.txt
+        echo "=================================="
+      shell: bash
+

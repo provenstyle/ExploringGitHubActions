@@ -1,0 +1,25 @@
+name: Reusable Download Artifact
+
+on:
+  workflow_call:
+    secrets:
+      GITHUB_TOKEN:
+        required: true
+
+jobs:
+  download-and-display:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: my-artifact
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: ./downloaded-artifact
+
+      - name: Display artifact content
+        run: |
+          echo "=== Content from reusable workflow ==="
+          cat ./downloaded-artifact/artifact.txt
+          echo "======================================"
+
