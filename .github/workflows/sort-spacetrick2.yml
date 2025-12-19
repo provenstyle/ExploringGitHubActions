@@ -1,0 +1,11 @@
+name: "  🔥 fire emoji"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-dev:
+    runs-on: ubuntu-latest
+    steps:
+    - name: print message
+      run: echo 'Testing emoji in the UI'
