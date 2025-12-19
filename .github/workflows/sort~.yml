@@ -1,4 +1,4 @@
-name: ~ tilde-prefixed workflows sort to the bottom of the list
+name: ~ tilde-prefixed workflows sort to the bottom of the text list
 
 on:
   workflow_dispatch:

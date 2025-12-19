@@ -1,0 +1,11 @@
+name: 🧩 puzzle piece emoji
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-dev:
+    runs-on: ubuntu-latest
+    steps:
+    - name: print message
+      run: echo 'Testing 🚀 rocket emoji in the UI'

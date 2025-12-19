@@ -1,0 +1,11 @@
+name: 🏗️ construction emoji
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-dev:
+    runs-on: ubuntu-latest
+    steps:
+    - name: print message
+      run: echo 'Testing 🏗️ construction emoji in the UI'
