@@ -1,0 +1,11 @@
+name: ~ how do i sort?
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-dev:
+    runs-on: ubuntu-latest
+    steps:
+    - name: print message
+      run: echo 'Testing ~ sorting in the UI'
