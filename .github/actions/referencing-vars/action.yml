@@ -1,0 +1,10 @@
+name: 'Can an action reference vars from the workflow?'
+description: 'Testing whether a composite action can reference vars from the workflow'
+
+runs:
+  using: composite
+  steps:
+    - name: Echo from vars
+      shell: bash
+      run: |
+        echo "Foo: ${{ vars.FOO }}"
