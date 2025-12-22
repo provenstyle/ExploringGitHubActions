@@ -7,5 +7,8 @@ jobs:
   test-composite-action:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
       - name: test-composite-action
         uses: ./.github/actions/referencing-vars
