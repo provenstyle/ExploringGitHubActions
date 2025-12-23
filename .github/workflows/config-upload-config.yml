@@ -1,0 +1,18 @@
+name: config-upload-config
+
+on:
+  workflow_call:
+
+jobs:
+  generate-config:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate config
+        run: |
+          echo "FOO=bar" > config.env
+          echo "FIZZ=buzz" >> config.env
+      - name: Upload config artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: config.env
+          path: config.env

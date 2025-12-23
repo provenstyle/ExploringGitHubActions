@@ -1,0 +1,32 @@
+name: config-download-config
+
+on:
+  workflow_dispatch:
+
+jobs:
+  upload-config:
+    uses: ./.github/workflows/config-upload-config.yml
+    secrets: inherit
+
+  download-config:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download config artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: config.env
+          path: config.env
+
+      - name: Load config into $GITHUB_ENV
+        run: |
+          cat config.env >> $GITHUB_ENV
+     
+      - name: Echo from env
+        run: |
+          echo "FOO: ${{ env.FOO }}"
+          echo "FIZZ: ${{ env.FIZZ }}"
+          
+      - name: Echo from bash
+        run: |
+          echo "FOO: $FOO"
+          echo "FIZZ: $FIZZ"
