@@ -1,5 +1,5 @@
-name: 'Can an action reference vars from the workflow?'
-description: 'Testing whether a composite action can reference vars from the workflow'
+name: 'Composite action cannot reference vars like a workflow can'
+description: 'Confirming that a composite action cannot reference vars like a workflow can'
 
 runs:
   using: composite

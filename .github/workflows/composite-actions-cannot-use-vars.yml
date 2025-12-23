@@ -1,4 +1,4 @@
-name: composite-actions-using-vars
+name: composite-actions-cannot-use-vars
 
 on:
   workflow_dispatch:
