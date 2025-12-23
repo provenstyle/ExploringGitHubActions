@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: create-config
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Download config artifact
         uses: ./.github/actions/download-config
      
@@ -29,5 +32,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: create-config
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: I use the config
         uses: ./.github/actions/i-use-the-config
