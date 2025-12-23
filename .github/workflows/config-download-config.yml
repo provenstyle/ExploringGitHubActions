@@ -16,10 +16,10 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: config.env
-          path: config.env
 
       - name: Load config into $GITHUB_ENV
         run: |
+          ls -la
           cat config.env >> $GITHUB_ENV
      
       - name: Echo from env
