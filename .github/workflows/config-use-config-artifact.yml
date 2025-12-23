@@ -1,4 +1,4 @@
-name: config-download-config
+name: config-use-config-artifact
 
 on:
   workflow_dispatch:
