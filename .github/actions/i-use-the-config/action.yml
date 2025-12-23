@@ -1,0 +1,20 @@
+name: 'I use the config'
+description: 'Uses the shared config artifact'
+
+runs:
+  using: composite
+  steps:
+    - name: Download config artifact
+      uses: ./.github/actions/download-config
+
+    - name: Echo from env in composite action
+      shell: bash
+      run: |
+        echo "FOO: ${{ env.FOO }}"
+        echo "FIZZ: ${{ env.FIZZ }}"
+        
+    - name: Echo from bash in composite action
+      shell: bash
+      run: |
+        echo "FOO: $FOO"
+        echo "FIZZ: $FIZZ"

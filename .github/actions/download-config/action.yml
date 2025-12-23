@@ -1,0 +1,15 @@
+name: 'Download config artifact'
+description: 'Downloads a config artifact and loads it into the environment'
+
+runs:
+  using: composite
+  steps:
+    - name: Download config artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: config.env
+
+    - name: Load config into $GITHUB_ENV
+      shell: bash
+      run: |
+        cat config.env >> $GITHUB_ENV

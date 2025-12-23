@@ -1,4 +1,4 @@
-name: config-upload-config
+name: config-create-config-artifact
 
 on:
   workflow_call:
@@ -11,6 +11,7 @@ jobs:
         run: |
           echo "FOO=bar" > config.env
           echo "FIZZ=buzz" >> config.env
+
       - name: Upload config artifact
         uses: actions/upload-artifact@v4
         with:

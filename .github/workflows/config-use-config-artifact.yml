@@ -4,23 +4,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  upload-config:
-    uses: ./.github/workflows/config-upload-config.yml
+  create-config:
+    uses: ./.github/workflows/config-create-config-artifact.yml
     secrets: inherit
 
-  download-config:
+  do-something-with-config-in-my-workflow:
     runs-on: ubuntu-latest
-    needs: upload-config
+    needs: create-config
     steps:
       - name: Download config artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: config.env
-
-      - name: Load config into $GITHUB_ENV
-        run: |
-          ls -la
-          cat config.env >> $GITHUB_ENV
+        uses: ./.github/actions/download-config
      
       - name: Echo from env
         run: |
@@ -31,3 +24,10 @@ jobs:
         run: |
           echo "FOO: $FOO"
           echo "FIZZ: $FIZZ"
+
+  composite-actions-can-use-config-artifact-too:
+    runs-on: ubuntu-latest
+    needs: create-config
+    steps:
+      - name: I use the config
+        uses: ./.github/actions/i-use-the-config
