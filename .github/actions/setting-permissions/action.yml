@@ -1,7 +1,9 @@
 name: 'Test setting permissions'
 description: 'Test setting permissions on a composite action'
 
-permissions: {}
+permissions:
+  id-token: write
+  contents: read
 
 runs:
   using: composite
