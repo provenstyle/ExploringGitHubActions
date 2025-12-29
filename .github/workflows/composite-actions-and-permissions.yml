@@ -1,0 +1,14 @@
+name: composite-actions-and-permissions
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-setting-permissions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: test-setting-permissions
+        uses: ./.github/actions/setting-permissions

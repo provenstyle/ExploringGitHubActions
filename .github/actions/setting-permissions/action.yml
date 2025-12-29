@@ -1,0 +1,12 @@
+name: 'Test setting permissions'
+description: 'Test setting permissions on a composite action'
+
+permissions: {}
+
+runs:
+  using: composite
+  steps:
+    - name: With permissions set
+      shell: bash
+      run: |
+        echo "This step has permissions set"
