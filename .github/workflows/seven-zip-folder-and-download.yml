@@ -33,17 +33,13 @@ jobs:
           name: service.7z
           path: service
 
-      - name: Debug the artifact
-        run: |
-          ls -la service
-
-      - name: Debug the artifact
-        run: |
-          ls -la service/service.7z
-
       - name: Unzip the artifact
         run: |
           7z x service/service.7z -o./service
+
+      - name: Debug the artifact
+        run: |
+          ls -la service
 
       - name: Cat the readme
         run: |
