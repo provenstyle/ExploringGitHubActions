@@ -7,4 +7,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Display 7z version
-      run: 7z --version
+      run: 7z
