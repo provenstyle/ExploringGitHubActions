@@ -1,4 +1,4 @@
-name: composite-actions-cannot-use-vars
+name: seven-zip-folder-and-download
 
 on:
   workflow_dispatch:
