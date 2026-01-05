@@ -1,0 +1,10 @@
+name: 7z-is-available-in-the-build-agent
+
+on: workflow_dispatch
+
+jobs:
+  use_7z:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Display 7z version
+      run: 7z --version
