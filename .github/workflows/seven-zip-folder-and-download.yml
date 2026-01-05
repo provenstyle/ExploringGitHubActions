@@ -18,7 +18,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: service
+          name: service.7z
           path: service/service.7z
           compression-level: 0 
           retention-days: 1
@@ -30,7 +30,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: service
+          name: service.7z
           path: service
 
       - name: Debug the artifact
@@ -40,6 +40,10 @@ jobs:
       - name: Debug the artifact
         run: |
           ls -la service/service.7z
+
+      - name: Unzip the artifact
+        run: |
+          7z x service/service.7z -o./service
 
       - name: Cat the readme
         run: |
