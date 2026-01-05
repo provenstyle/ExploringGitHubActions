@@ -37,6 +37,10 @@ jobs:
         run: |
           ls -la service
 
+      - name: Debug the artifact
+        run: |
+          ls -la service/service.7z
+
       - name: Cat the readme
         run: |
           cat service/README.md
