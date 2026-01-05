@@ -1,0 +1,10 @@
+name: func-is-available-in-the-build-agent
+
+on: workflow_dispatch
+
+jobs:
+  use_func:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run func version
+      run: func --version
