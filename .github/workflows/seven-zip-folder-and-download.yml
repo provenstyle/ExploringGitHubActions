@@ -33,6 +33,10 @@ jobs:
           name: service
           path: service
 
+      - name: Debug the artifact
+        run: |
+          ls -la service
+
       - name: Cat the readme
         run: |
           cat service/README.md
