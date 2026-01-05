@@ -1,4 +1,4 @@
-name: 7z-is-available-in-the-build-agent
+name: seven-zip-is-available-in-the-build-agent
 
 on: workflow_dispatch
 
