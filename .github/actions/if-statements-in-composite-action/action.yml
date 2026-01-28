@@ -1,0 +1,40 @@
+name: if-statements-in-composite-action
+description: "Test if statements in a composite actions"
+
+inputs:
+  boolean_input:
+    description: "A boolean input"
+    required: false
+    type: boolean
+    default: false
+
+runs:
+  using: composite
+  steps:
+    - name: Test input as boolean true
+      if: ${{ inputs.boolean_input == true }}
+      shell: bash
+      run: |
+        echo "Input was: ${{ inputs.boolean_input }}"
+        echo "Executing the true step"
+
+    - name: Test input as boolean false
+      if: ${{ inputs.boolean_input == false }}
+      shell: bash
+      run: |
+        echo "Input was: ${{ inputs.boolean_input }}"
+        echo "Executing the false step"
+
+    - name: Test input as strings true
+      if: ${{ inputs.boolean_input == 'true' }}
+      shell: bash
+      run: |
+        echo "Input was: ${{ inputs.boolean_input }}"
+        echo "Executing the true step"
+
+    - name: Test input as strings false
+      if: ${{ inputs.boolean_input == 'false' }}
+      shell: bash
+      run: |
+        echo "Input was: ${{ inputs.boolean_input }}"
+        echo "Executing the false step"

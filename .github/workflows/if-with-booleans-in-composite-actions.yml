@@ -1,0 +1,19 @@
+name: if-with-booleans-in-composite-actions
+
+on: 
+  workflow_dispatch:
+    inputs:
+      boolean_input:
+        description: "A boolean input"
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  test-boolean-input:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Test input as boolean true
+      uses: ./.github/actions/if-statements-in-composite-action
+      with:
+        boolean_input: ${{ inputs.boolean_input }}
