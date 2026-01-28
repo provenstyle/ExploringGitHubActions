@@ -17,7 +17,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Test input as boolean true
+    - name: Test boolean input in composite action
       uses: ./.github/actions/if-statements-in-composite-action
       with:
         boolean_input: ${{ inputs.boolean_input }}
