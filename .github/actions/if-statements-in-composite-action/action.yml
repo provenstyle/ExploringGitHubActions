@@ -30,11 +30,11 @@ runs:
       shell: bash
       run: |
         echo "Input was: ${{ inputs.boolean_input }}"
-        echo "Executing the true step"
+        echo "Executing the 'true' step"
 
     - name: Test input as strings false
       if: ${{ inputs.boolean_input == 'false' }}
       shell: bash
       run: |
         echo "Input was: ${{ inputs.boolean_input }}"
-        echo "Executing the false step"
+        echo "Executing the 'false' step"

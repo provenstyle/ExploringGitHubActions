@@ -18,6 +18,7 @@ jobs:
       run: |
         echo "Input was: ${{ inputs.boolean_input }}"
         echo "Executing the true step"
+
     - name: Test input as boolean false
       if: ${{ inputs.boolean_input == false }}
       run: |
@@ -28,9 +29,10 @@ jobs:
       if: ${{ inputs.boolean_input == 'true' }}
       run: |
         echo "Input was: ${{ inputs.boolean_input }}"
-        echo "Executing the true step"
+        echo "Executing the 'true' step"
+
     - name: Test input as strings false
       if: ${{ inputs.boolean_input == 'false' }}
       run: |
         echo "Input was: ${{ inputs.boolean_input }}"
-        echo "Executing the false step"
+        echo "Executing the 'false' step"
